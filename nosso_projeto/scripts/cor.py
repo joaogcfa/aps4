@@ -88,15 +88,23 @@ if __name__=="__main__":
 	try:
 
 		while not rospy.is_shutdown():
+
 			vel = Twist(Vector3(0,0,0), Vector3(0,0,0))
+
 			if len(media) != 0 and len(centro) != 0:
+				
+				'''tem que mudar o vermelho escrito aqui'''
 				print("Média dos vermelhos: {0}, {1}".format(media[0], media[1]))
 				print("Centro dos vermelhos: {0}, {1}".format(centro[0], centro[1]))
 
+				# Identificar onde está o verde e manter centralizado
 				if (media[0] > centro[0]):
 					vel = Twist(Vector3(0,0,0), Vector3(0,0,-0.1))
 				if (media[0] < centro[0]):
 					vel = Twist(Vector3(0,0,0), Vector3(0,0,0.1))
+				if (media[0] == centro[0]):
+					vel = Twist(Vector3(0.8,0,0), Vector3(0,0,0))
+			
 			velocidade_saida.publish(vel)
 			rospy.sleep(0.1)
 
