@@ -87,3 +87,4 @@ def identifica_cor(frame):
     cv2.waitKey(1)
 
     return media, centro, maior_contorno_area
+
