@@ -93,16 +93,15 @@ if __name__=="__main__":
 
 			if len(media) != 0 and len(centro) != 0:
 				
-				'''tem que mudar o vermelho escrito aqui'''
-				print("Média dos vermelhos: {0}, {1}".format(media[0], media[1]))
-				print("Centro dos vermelhos: {0}, {1}".format(centro[0], centro[1]))
+				print("Média dos verdes: {0}, {1}".format(media[0], media[1]))
+				print("Centro dos verdes: {0}, {1}".format(centro[0], centro[1]))
 
 				# Identificar onde está o verde e manter centralizado
 				if (media[0] > centro[0]):
 					vel = Twist(Vector3(0,0,0), Vector3(0,0,-0.1))
 				if (media[0] < centro[0]):
 					vel = Twist(Vector3(0,0,0), Vector3(0,0,0.1))
-				if (media[0] == centro[0]):
+				if (media[1]>210 & 320>media[0]):
 					vel = Twist(Vector3(0.8,0,0), Vector3(0,0,0))
 			
 			velocidade_saida.publish(vel)
