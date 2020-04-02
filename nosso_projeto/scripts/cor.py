@@ -103,8 +103,8 @@ if __name__=="__main__":
 	ta_no_centro = False
 	chegou_distancia = False
 
-	menor_media = 310
-	maior_media = 330
+	menor_media = 305
+	maior_media = 345
 
 	try:
 		while not chegou_distancia:
@@ -146,17 +146,18 @@ if __name__=="__main__":
 							velocidade_saida.publish(velocidade)
 							rospy.sleep(0.6)
 							print("A DISTANCIA eh", distancia)
-							while distancia > 0.30:
+							while distancia > 0.23:
 								velocidade = Twist(Vector3(0.3, 0, 0), Vector3(0, 0, 0))
 								velocidade_saida.publish(velocidade)
 								rospy.sleep(0.2)
 
 								print("A DISTANCIA EH", distancia)
 
-							while distancia < 0.30:
+							while distancia < 0.23:
 								print("HI")
 								velocidade = Twist(Vector3(0, 0, 0), Vector3(0, 0, 0))
 								velocidade_saida.publish(velocidade)
+								vel = Twist(Vector3(0,0,0), Vector3(0,0,0))
 								rospy.sleep(0.2)
 								break								
 
